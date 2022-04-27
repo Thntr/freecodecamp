@@ -71,4 +71,4 @@ Copy your project's URL and submit it to freeCodeCamp.
 
 ##Test the solution...
 
-> [_here_](https://replit.com/@Thntr/boilerplate-budget-app-13#budget.py)
+> [_RIGHT HERE_](https://replit.com/@Thntr/boilerplate-budget-app-13#budget.py)

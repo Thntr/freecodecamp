@@ -132,40 +132,60 @@ ALTER TABLE ONLY public.usernames ALTER COLUMN user_id SET DEFAULT nextval('publ
 -- Data for Name: games; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.games VALUES (1, 3, 1);
-INSERT INTO public.games VALUES (2, 19, 1);
-INSERT INTO public.games VALUES (3, 15, 1);
-INSERT INTO public.games VALUES (4, 20, 1);
-INSERT INTO public.games VALUES (90, 523, 36);
-INSERT INTO public.games VALUES (91, 590, 36);
-INSERT INTO public.games VALUES (92, 189, 37);
-INSERT INTO public.games VALUES (93, 244, 37);
-INSERT INTO public.games VALUES (94, 302, 36);
-INSERT INTO public.games VALUES (95, 491, 36);
-INSERT INTO public.games VALUES (96, 368, 36);
+INSERT INTO public.games VALUES (343, 496, 112);
+INSERT INTO public.games VALUES (344, 571, 112);
+INSERT INTO public.games VALUES (345, 57, 113);
+INSERT INTO public.games VALUES (346, 961, 113);
+INSERT INTO public.games VALUES (347, 166, 112);
+INSERT INTO public.games VALUES (348, 311, 112);
+INSERT INTO public.games VALUES (349, 5, 112);
+INSERT INTO public.games VALUES (350, 972, 114);
+INSERT INTO public.games VALUES (351, 957, 114);
+INSERT INTO public.games VALUES (352, 939, 115);
+INSERT INTO public.games VALUES (353, 76, 115);
+INSERT INTO public.games VALUES (354, 537, 114);
+INSERT INTO public.games VALUES (355, 394, 114);
+INSERT INTO public.games VALUES (356, 29, 114);
 
 
 --
 -- Data for Name: usernames; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.usernames VALUES (1, 'Gohan', 1, 4);
-INSERT INTO public.usernames VALUES (37, 'user_1664766039140', 92, 2);
-INSERT INTO public.usernames VALUES (36, 'user_1664766039141', 94, 5);
+INSERT INTO public.usernames VALUES (113, 'user_1664909623549', 345, 2);
+INSERT INTO public.usernames VALUES (112, 'user_1664909623550', 349, 5);
+INSERT INTO public.usernames VALUES (115, 'user_1664909675674', 353, 2);
+INSERT INTO public.usernames VALUES (114, 'user_1664909675675', 356, 5);
 
 
 --
 -- Name: games_game_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.games_game_id_seq', 96, true);
+SELECT pg_catalog.setval('public.games_game_id_seq', 356, true);
 
 
 --
 -- Name: usernames_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.usernames_user_id_seq', 37, true);
+SELECT pg_catalog.setval('public.usernames_user_id_seq', 115, true);
+
+
+--
+-- Name: usernames unique_user_id_in_usernames; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.usernames
+    ADD CONSTRAINT unique_user_id_in_usernames UNIQUE (user_id);
+
+
+--
+-- Name: games fk_games_username; Type: FK CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.games
+    ADD CONSTRAINT fk_games_username FOREIGN KEY (user_id) REFERENCES public.usernames(user_id);
 
 
 --
